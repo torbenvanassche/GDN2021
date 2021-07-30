@@ -5,7 +5,7 @@ using XNode;
 
 namespace Nodes
 {
-    [CreateAssetMenu(menuName = "Dialogue graph"), RequireNode(typeof(Start))]
+    [CreateAssetMenu(menuName = "Custom/Graph"), RequireNode(typeof(Start))]
     public class Graph : NodeGraph
     {
         [NonSerialized] public Graph graphOnReset = null;

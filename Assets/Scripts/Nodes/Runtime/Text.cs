@@ -11,6 +11,8 @@ namespace NodeEditor
 {
     public class Text : State
     {
+        [HideLabel] public CharacterData character;
+        
         [HideLabel, Multiline(3)] public string text;
         public static UnityEngine.UI.Text OutputField = null;
 

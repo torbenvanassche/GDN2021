@@ -9,6 +9,7 @@ namespace NodeEditor
 {
     public sealed class Reply : State
     {
+        [HideLabel] public CharacterData character;
         [HideLabel, Multiline(3)] public string text;
         [HideInInspector] public GameObject button = null;
 
