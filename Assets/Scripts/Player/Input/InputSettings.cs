@@ -123,7 +123,7 @@ public class @InputSettings : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f02140ce-2fdf-4537-a271-d789284187f2"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Key&Mouse"",

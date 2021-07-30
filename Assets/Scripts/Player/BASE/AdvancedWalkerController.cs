@@ -100,7 +100,6 @@ public class AdvancedWalkerController : Controller
     void HandleJumpKeyInput()
     {
         bool _newJumpKeyPressedState = IsJumpKeyPressed();
-        Debug.Log(_newJumpKeyPressedState);
 
         if (jumpKeyIsPressed == false && _newJumpKeyPressedState == true)
             jumpKeyWasPressed = true;
