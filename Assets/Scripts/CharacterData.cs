@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using NodeEditor;
-using Nodes;
-using Sirenix.OdinInspector;
-using UnityEditor;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Custom/Character")]

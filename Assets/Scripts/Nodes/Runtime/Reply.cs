@@ -10,7 +10,7 @@ namespace NodeEditor
     {
         [HideLabel, Multiline(3)] public string text;
 
-        private new State GetNext()
+        public override State GetNext()
         {
             State outNode = null;
             

@@ -32,6 +32,7 @@ namespace Utils
             foreach (char letter in toPrint)
             {
                 _textBox.text += letter;
+                _textBox.MarkDirtyRepaint();
                 await Task.Delay(delay);
             }
         }

@@ -17,6 +17,7 @@ public class TextManager : Singleton<TextManager>
     private Label characterName;
 
     [SerializeField] private int printSpeed = 10;
+    private Printer _printer;
 
     void Awake()
     {
@@ -27,6 +28,9 @@ public class TextManager : Singleton<TextManager>
         characterName = root.Q<Label>("CharacterName");
 
         characterPortraitBox = root.Q<VisualElement>("CharacterPortrait");
+
+        _printer = new Printer(textBox, printSpeed);
+        doc.rootVisualElement.visible = false;
     }
 
     public async void UpdateUI(CharacterData _character, string _toPrint, List<Reply> _replies)
@@ -37,7 +41,7 @@ public class TextManager : Singleton<TextManager>
         characterName.text = _character.name;
         
         //await printer finish to show reply buttons
-        await new Printer(textBox, printSpeed).Print(_toPrint, true);
+        await _printer.Print(_toPrint, true);
 
         foreach (var reply in _replies)
         {

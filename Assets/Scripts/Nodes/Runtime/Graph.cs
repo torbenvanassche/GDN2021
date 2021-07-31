@@ -35,15 +35,16 @@ namespace Nodes
         public void Unload()
         {
             _currentNode = null;
-            
-            TextManager.Instance.doc.gameObject.SetActive(false);
+            TextManager.Instance.doc.rootVisualElement.visible = false;
         }
 
         public void Load()
         {
-            TextManager.Instance.doc.gameObject.SetActive(true);
             CurrentNode = (State) nodes.Find(node => node.GetType() == typeof(Start));
             CurrentNode = CurrentNode.GetNext();
+            
+            //enable printfield
+            TextManager.Instance.doc.rootVisualElement.visible = true;
         }
 
         public override string ToString()
