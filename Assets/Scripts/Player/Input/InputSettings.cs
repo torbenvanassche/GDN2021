@@ -51,26 +51,10 @@ public class @InputSettings : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Dash"",
+                    ""name"": ""TurnToAsh"",
                     ""type"": ""Button"",
-                    ""id"": ""0774ddfc-8f56-4113-980b-961caa3ecf18"",
+                    ""id"": ""b6f9cace-37d2-452d-b9d8-daf45ae221af"",
                     ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""MouseMove"",
-                    ""type"": ""Value"",
-                    ""id"": ""cbb6b793-2222-45ce-ae80-f7dd205bda25"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""MiddleScroll"",
-                    ""type"": ""Value"",
-                    ""id"": ""2708c699-d3a1-4f84-9000-93699d659506"",
-                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -133,45 +117,23 @@ public class @InputSettings : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9816710f-dcf4-43e6-b4fb-797e8f789925"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Key&Mouse"",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b5a24832-2dbb-4d5a-a096-670f9cdb3c9a"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Key&Mouse"",
-                    ""action"": ""MouseMove"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e52bb83c-be01-4693-890e-2aaf67034d23"",
-                    ""path"": ""<Mouse>/scroll/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Key&Mouse"",
-                    ""action"": ""MiddleScroll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""cdc525de-82d4-4399-994e-ea5317cd1988"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0fd56a5-6116-450e-830b-aa0ac2f4954b"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Key&Mouse"",
+                    ""action"": ""TurnToAsh"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -203,9 +165,7 @@ public class @InputSettings : IInputActionCollection, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-        m_Player_MouseMove = m_Player.FindAction("MouseMove", throwIfNotFound: true);
-        m_Player_MiddleScroll = m_Player.FindAction("MiddleScroll", throwIfNotFound: true);
+        m_Player_TurnToAsh = m_Player.FindAction("TurnToAsh", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -259,9 +219,7 @@ public class @InputSettings : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_Dash;
-    private readonly InputAction m_Player_MouseMove;
-    private readonly InputAction m_Player_MiddleScroll;
+    private readonly InputAction m_Player_TurnToAsh;
     public struct PlayerActions
     {
         private @InputSettings m_Wrapper;
@@ -270,9 +228,7 @@ public class @InputSettings : IInputActionCollection, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @Dash => m_Wrapper.m_Player_Dash;
-        public InputAction @MouseMove => m_Wrapper.m_Player_MouseMove;
-        public InputAction @MiddleScroll => m_Wrapper.m_Player_MiddleScroll;
+        public InputAction @TurnToAsh => m_Wrapper.m_Player_TurnToAsh;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -294,15 +250,9 @@ public class @InputSettings : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @MouseMove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMove;
-                @MouseMove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMove;
-                @MouseMove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMove;
-                @MiddleScroll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMiddleScroll;
-                @MiddleScroll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMiddleScroll;
-                @MiddleScroll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMiddleScroll;
+                @TurnToAsh.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTurnToAsh;
+                @TurnToAsh.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTurnToAsh;
+                @TurnToAsh.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTurnToAsh;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -319,15 +269,9 @@ public class @InputSettings : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
-                @Dash.started += instance.OnDash;
-                @Dash.performed += instance.OnDash;
-                @Dash.canceled += instance.OnDash;
-                @MouseMove.started += instance.OnMouseMove;
-                @MouseMove.performed += instance.OnMouseMove;
-                @MouseMove.canceled += instance.OnMouseMove;
-                @MiddleScroll.started += instance.OnMiddleScroll;
-                @MiddleScroll.performed += instance.OnMiddleScroll;
-                @MiddleScroll.canceled += instance.OnMiddleScroll;
+                @TurnToAsh.started += instance.OnTurnToAsh;
+                @TurnToAsh.performed += instance.OnTurnToAsh;
+                @TurnToAsh.canceled += instance.OnTurnToAsh;
             }
         }
     }
@@ -347,8 +291,6 @@ public class @InputSettings : IInputActionCollection, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
-        void OnMouseMove(InputAction.CallbackContext context);
-        void OnMiddleScroll(InputAction.CallbackContext context);
+        void OnTurnToAsh(InputAction.CallbackContext context);
     }
 }

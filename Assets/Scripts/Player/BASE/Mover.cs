@@ -7,8 +7,8 @@ public class Mover : MonoBehaviour
     [Header("Mover Options :")] [Range(0f, 1f)] [SerializeField]
     float stepHeightRatio = 0.25f;
 
-    [Header("Collider Options :")] [SerializeField]
-    float colliderHeight = 2f;
+    [Header("Collider Options :"), Range(0.01f, 1)] [SerializeField]
+    public float colliderHeight = 2f;
 
     [SerializeField] float colliderThickness = 1f;
     [SerializeField] Vector3 colliderOffset = Vector3.zero;

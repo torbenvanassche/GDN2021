@@ -38,26 +38,10 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Dash",
+                    "name": "TurnToAsh",
                     "type": "Button",
-                    "id": "0774ddfc-8f56-4113-980b-961caa3ecf18",
+                    "id": "b6f9cace-37d2-452d-b9d8-daf45ae221af",
                     "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "MouseMove",
-                    "type": "Value",
-                    "id": "cbb6b793-2222-45ce-ae80-f7dd205bda25",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "MiddleScroll",
-                    "type": "Value",
-                    "id": "2708c699-d3a1-4f84-9000-93699d659506",
-                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 }
@@ -120,45 +104,23 @@
                 },
                 {
                     "name": "",
-                    "id": "9816710f-dcf4-43e6-b4fb-797e8f789925",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Key&Mouse",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b5a24832-2dbb-4d5a-a096-670f9cdb3c9a",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Key&Mouse",
-                    "action": "MouseMove",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e52bb83c-be01-4693-890e-2aaf67034d23",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Key&Mouse",
-                    "action": "MiddleScroll",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "cdc525de-82d4-4399-994e-ea5317cd1988",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0fd56a5-6116-450e-830b-aa0ac2f4954b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Key&Mouse",
+                    "action": "TurnToAsh",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -7,8 +7,12 @@ public class KeyboardInput : MonoBehaviour
     private bool _jump;
     private bool _sprint;
 
+    private MechanicController _mechanicController;
+
     private void Awake()
     {
+        _mechanicController = GetComponent<MechanicController>();
+        
         Controls.Instance.Enable();
 
         Controls.Instance.Input.Player.Move.performed += context =>
@@ -24,6 +28,8 @@ public class KeyboardInput : MonoBehaviour
 
         Controls.Instance.Input.Player.Sprint.performed += context => _sprint = true;
         Controls.Instance.Input.Player.Sprint.canceled += context => _sprint = false;
+        
+        Controls.Instance.Input.Player.TurnToAsh.performed += context => _mechanicController.ToggleAsh();
     }
 
     public float GetHorizontalMovementInput()

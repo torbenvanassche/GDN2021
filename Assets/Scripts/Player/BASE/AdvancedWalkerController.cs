@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AdvancedWalkerController : Controller
 {
@@ -18,6 +16,7 @@ public class AdvancedWalkerController : Controller
 
     //Movement speed;
     public float movementSpeed = 7f;
+    public float sprintSpeed = 15f;
 
     //How fast the controller can change direction while in the air;
     //Higher values result in more air control;
@@ -101,10 +100,10 @@ public class AdvancedWalkerController : Controller
     {
         bool _newJumpKeyPressedState = IsJumpKeyPressed();
 
-        if (jumpKeyIsPressed == false && _newJumpKeyPressedState == true)
+        if (jumpKeyIsPressed == false && _newJumpKeyPressedState)
             jumpKeyWasPressed = true;
 
-        if (jumpKeyIsPressed == true && _newJumpKeyPressedState == false)
+        if (jumpKeyIsPressed && _newJumpKeyPressedState == false)
         {
             jumpKeyWasLetGo = true;
             jumpInputIsLocked = false;
@@ -209,7 +208,14 @@ public class AdvancedWalkerController : Controller
         Vector3 _velocity = CalculateMovementDirection();
 
         //Multiply (normalized) velocity with movement speed;
-        _velocity *= movementSpeed;
+        if (IsSprintPressed())
+        {
+            _velocity *= sprintSpeed;
+        }
+        else
+        {
+            _velocity *= movementSpeed;
+        }
 
         return _velocity;
     }
@@ -222,6 +228,16 @@ public class AdvancedWalkerController : Controller
             return false;
 
         return characterInput.IsJumpKeyPressed();
+    }
+    
+    //Returns 'true' if the player presses the jump key;
+    protected virtual bool IsSprintPressed()
+    {
+        //If no character input script is attached to this object, return;
+        if (characterInput == null)
+            return false;
+
+        return characterInput.IsSprintKeyPressed();
     }
 
     //Determine current controller state based on current momentum and whether the controller is grounded (or not);
