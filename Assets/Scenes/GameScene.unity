@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 655498473}
   - component: {fileID: 655498472}
+  - component: {fileID: 655498474}
   m_Layer: 5
   m_Name: UIExampleDialog
   m_TagString: Untagged
@@ -170,6 +171,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &655498474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655498471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d805e8672d18bff449399be60f089b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character1: {fileID: 2800000, guid: 8405c10f9ce49f84f8866fb4bfb43f1c, type: 3}
+  Character2: {fileID: 2800000, guid: 301aab84fbbdaf8489dcc49efc696d1c, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

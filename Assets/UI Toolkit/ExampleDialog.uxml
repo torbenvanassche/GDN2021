@@ -10,7 +10,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="TopAlignDiv" style="flex-direction: row; flex-grow: 1; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; background-color: rgb(30, 219, 205); height: 25%; flex-shrink: 1;">
-                <ui:VisualElement name="CharacterPortrait" style="width: 128px; height: 128px; background-color: rgb(202, 197, 47); margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; flex-shrink: 0;" />
+                <ui:VisualElement name="CharacterPortrait" style="width: 128px; height: 128px; background-color: rgb(202, 197, 47); margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; flex-shrink: 0; background-image: url(&apos;/Assets/UI Toolkit/Sprites/ExampleCharacterPortrait.png&apos;);" />
                 <ui:VisualElement name="DialogBox" style="flex-grow: 1; flex-direction: row; align-items: auto; height: 100%; background-color: rgb(141, 188, 79); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; width: 100%;" />
             </ui:VisualElement>
         </ui:VisualElement>
