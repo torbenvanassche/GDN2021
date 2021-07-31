@@ -8,7 +8,7 @@ public class GraphController : Interactable
 
     protected override void Action(InputAction.CallbackContext context = default)
     {
-        if (graph)
+        if (graph && !TextManager.Instance.doc.rootVisualElement.visible)
         {
             graph.Load();
         }
