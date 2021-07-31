@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="DialogDiv" style="flex-direction: column-reverse; justify-content: flex-start; flex-grow: 1; align-items: stretch; width: 100%; height: 100%;">
+        <ui:VisualElement name="BottomAlignDiv" style="flex-direction: column; color: rgb(0, 0, 0); background-color: rgb(255, 0, 0); flex-grow: 0.55; align-items: stretch; justify-content: flex-start; height: 35%;">
+            <ui:VisualElement name="RightAlignDiv" style="flex-grow: 0; align-items: flex-end; background-color: rgb(200, 135, 50); flex-shrink: 1; justify-content: space-between; flex-direction: column;">
+                <ui:VisualElement name="ChoiceDiv" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; align-items: auto; flex-direction: column; justify-content: flex-start;">
+                    <ui:Label text="Here&apos;s the first choice." display-tooltip-when-elided="true" name="ChoiceOne" style="-unity-font: resource(&apos;Fonts &amp; Materials/LiberationSans&apos;); font-size: 24px; flex-wrap: nowrap; white-space: normal; -unity-text-align: upper-right;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ChoiceDiv">
+                    <ui:Label text="Here&apos;s the second choice." display-tooltip-when-elided="true" name="ChoiceTwo" style="-unity-font: resource(&apos;Fonts &amp; Materials/LiberationSans&apos;); font-size: 24px; -unity-font-definition: resource(&apos;Fonts &amp; Materials/LiberationSans SDF&apos;); -unity-text-align: upper-right; white-space: normal;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="TopAlignDiv" style="flex-direction: row; flex-grow: 1; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; background-color: rgb(30, 219, 205); height: 25%; flex-shrink: 1;">
+                <ui:VisualElement name="CharacterPortrait" style="width: 128px; height: 128px; background-color: rgb(202, 197, 47); margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; flex-shrink: 0; background-image: url(&apos;/Assets/UI Toolkit/Sprites/ExampleCharacterPortrait.png&apos;);" />
+                <ui:VisualElement name="TopAlignDialogDiv" style="background-color: rgb(197, 200, 84); width: 100%; height: 100%;">
+                    <ui:VisualElement name="CharacterNameDiv" style="height: 20%; max-width: none;">
+                        <ui:Label text="Jiffypoof" display-tooltip-when-elided="true" name="CharacterName" style="-unity-font: resource(&apos;Fonts &amp; Materials/LiberationSans&apos;); font-size: 24px; color: rgb(0, 0, 0);" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="DialogBox" style="flex-grow: 1; flex-direction: row; align-items: auto; height: 100%; background-color: rgb(141, 188, 79); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; width: 100%; -unity-font: resource(&apos;Fonts &amp; Materials/LiberationSans&apos;);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
