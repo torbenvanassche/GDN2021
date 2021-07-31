@@ -2,16 +2,13 @@
 using Nodes;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UI;
 using XNode;
 
 namespace NodeEditor
 {
     public sealed class Reply : State
     {
-        [HideLabel] public CharacterData character;
         [HideLabel, Multiline(3)] public string text;
-        [HideInInspector] public GameObject button = null;
 
         private new State GetNext()
         {
@@ -42,18 +39,6 @@ namespace NodeEditor
             {
                 to.Disconnect(from);
             }
-        }
-
-        public void GenerateButton()
-        {
-            button = Instantiate(Graph.Controller.replyPrefab, 
-                Text.OutputField.transform.parent.GetComponentInChildren<VerticalLayoutGroup>().transform);
-
-            button.GetComponentInChildren<UnityEngine.UI.Text>().text = text;
-            button.GetComponent<Button>().onClick.AddListener(() =>
-            {
-                Graph.CurrentNode = GetNext();
-            });
         }
     }
 }

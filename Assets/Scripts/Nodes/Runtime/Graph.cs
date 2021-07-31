@@ -32,22 +32,16 @@ namespace Nodes
             }
         }
 
-        [NonSerialized] public GraphController Controller = null;
-
         public void Unload()
         {
-            Controller.graph = graphOnReset;
-
-            graphOnReset = null;
             _currentNode = null;
             
-            Destroy(Controller.textBoxInstance);
+            TextManager.Instance.doc.gameObject.SetActive(false);
         }
 
-        public void Load(GraphController runner)
+        public void Load()
         {
-            Controller = runner;
-            
+            TextManager.Instance.doc.gameObject.SetActive(true);
             CurrentNode = (State) nodes.Find(node => node.GetType() == typeof(Start));
             CurrentNode = CurrentNode.GetNext();
         }

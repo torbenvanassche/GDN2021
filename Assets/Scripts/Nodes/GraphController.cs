@@ -1,27 +1,16 @@
-﻿using System;
-using Nodes;
+﻿using Nodes;
 using Sirenix.OdinInspector;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
-[HideMonoScript]
 public class GraphController : Interactable
 {
-    public Graph graph;
-
-    [Header("UI"), SerializeField] private GameObject outputTextBox = null;
-    [AssetsOnly] public GameObject replyPrefab = null;
-
-    [NonSerialized] public GameObject textBoxInstance = null;
+    [HideLabel] public Graph graph;
 
     protected override void Action(InputAction.CallbackContext context = default)
     {
-        if (!textBoxInstance && graph)
+        if (graph)
         {
-            textBoxInstance = Instantiate(outputTextBox, transform);
-            textBoxInstance.SetActive(true);
-
-            graph.Load(this);
+            graph.Load();
         }
     }
 }

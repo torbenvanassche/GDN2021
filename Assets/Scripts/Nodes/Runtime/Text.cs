@@ -14,17 +14,13 @@ namespace NodeEditor
         [HideLabel] public CharacterData character;
         
         [HideLabel, Multiline(3)] public string text;
-        public static UnityEngine.UI.Text OutputField = null;
 
         private List<GameObject> buttons = new List<GameObject>();
 
         public override async Task<State> OnEnter()
         {
-            OutputField = Graph.Controller.textBoxInstance.GetComponentInChildren<UnityEngine.UI.Text>();
-            await new Printer(OutputField, 100).Print(text, true);
-
+            TextManager.Instance.UpdateUI(character, text, GetReplies());
             await base.OnEnter();
-            AddUserInterface(GetReplies());
 
             return null;
         }
@@ -40,25 +36,6 @@ namespace NodeEditor
             }
 
             return replies;
-        }
-
-        private void AddUserInterface(List<Reply> replies)
-        {
-            buttons.Clear();
-            foreach (var reply in replies)
-            {
-                reply.GenerateButton();
-                buttons.Add(reply.button);
-                reply.button.GetComponent<Button>().onClick.AddListener(() =>
-                {
-                    foreach (var button in buttons)
-                    {
-                        Destroy(button);
-                    }
-
-                    buttons.Clear();
-                });
-            }
         }
     }
 }
