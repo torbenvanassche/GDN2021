@@ -4,8 +4,6 @@ using System.Threading.Tasks;
 using Nodes;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UI;
-using Utils;
 
 namespace NodeEditor
 {

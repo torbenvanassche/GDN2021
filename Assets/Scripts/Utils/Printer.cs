@@ -33,6 +33,11 @@ namespace Utils
                 _textBox.text += letter;
                 yield return new WaitForSeconds(_speed / 1000);
             }
+            
+            //draw the buttons here
+            TextManager.finishPrintDelegate.Invoke();
+            TextManager.finishPrintDelegate = delegate {  };
+            
         }
     }
 }

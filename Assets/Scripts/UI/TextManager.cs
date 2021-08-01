@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using NodeEditor;
 using Nodes;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 using Utilities;
 using Utils;
@@ -18,6 +19,10 @@ public class TextManager : Singleton<TextManager>
 
     [SerializeField] private int printSpeed = 10;
     private Printer _printer;
+
+    public delegate void onFinishPrintDelegate();
+    public static onFinishPrintDelegate finishPrintDelegate;
+    
 
     void Awake()
     {
@@ -45,23 +50,26 @@ public class TextManager : Singleton<TextManager>
         //await printer finish to show reply buttons
         _printer.Print(_toPrint, true);
 
-        foreach (var reply in _replies)
+        finishPrintDelegate += () =>
         {
-            var button = new Button(() =>
+            foreach (var reply in _replies)
             {
-                //handle graph progression
-                (reply.graph as Graph).CurrentNode = reply.GetNext();
-                
-                //reverse to prevent going out of range, remove all buttons
-                for (int i = replies.childCount - 1; i >= 0; i--)
+                var button = new Button(() =>
                 {
-                    replies.RemoveAt(i);
-                }
-            });
-            
-            button.text = reply.text;
-            button.style.width = new Length(50, LengthUnit.Percent);
-            replies.Add(button);
-        }
+                    //handle graph progression
+                    (reply.graph as Graph).CurrentNode = reply.GetNext();
+
+                    //reverse to prevent going out of range, remove all buttons
+                    for (int i = replies.childCount - 1; i >= 0; i--)
+                    {
+                        replies.RemoveAt(i);
+                    }
+                });
+
+                button.text = reply.text;
+                button.style.width = new Length(50, LengthUnit.Percent);
+                replies.Add(button);
+            }
+        };
     }
 }
