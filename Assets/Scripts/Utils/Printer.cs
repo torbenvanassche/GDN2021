@@ -1,25 +1,24 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 namespace Utils
 {
-    public class Printer
+    public class Printer : MonoBehaviour
     {
         private TextElement _textBox = null;
-        private int _speed = 0;
-        
-        public Printer(TextElement textComponent, int speed)
+        private float _speed = 0f;
+
+        public void Initialize(TextElement textComponent, int speed)
         {
             _textBox = textComponent;
             _speed = speed;
         }
 
-        public Task Print(string toPrint, bool clear = false)
+        public void Print(string toPrint, bool clear = false)
         {
             if (clear) ClearTextbox();
-            return DelayPrint(toPrint, _speed);
+            StartCoroutine(DelayPrint(toPrint));
         }
 
         public void ClearTextbox()
@@ -27,13 +26,12 @@ namespace Utils
             _textBox.text = string.Empty;
         }
 
-        async Task DelayPrint(string toPrint, int delay)
+        IEnumerator DelayPrint(string toPrint)
         {
             foreach (char letter in toPrint)
             {
                 _textBox.text += letter;
-                _textBox.MarkDirtyRepaint();
-                await Task.Delay(delay);
+                yield return new WaitForSeconds(_speed / 1000);
             }
         }
     }

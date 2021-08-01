@@ -29,11 +29,13 @@ public class TextManager : Singleton<TextManager>
 
         characterPortraitBox = root.Q<VisualElement>("CharacterPortrait");
 
-        _printer = new Printer(textBox, printSpeed);
+        _printer = gameObject.AddComponent<Printer>();
+        _printer.Initialize(textBox, printSpeed);
+        
         doc.rootVisualElement.visible = false;
     }
 
-    public async void UpdateUI(CharacterData _character, string _toPrint, List<Reply> _replies)
+    public void UpdateUI(CharacterData _character, string _toPrint, List<Reply> _replies)
     {
         // Currently required to change images like this, see: https://forum.unity.com/threads/how-to-displays-rawimage-in-the-uitoolkit.989257/
         // Moreover, they must be in StyleBackground format which takes, among other things, a Texture2D.
@@ -41,7 +43,7 @@ public class TextManager : Singleton<TextManager>
         characterName.text = _character.name;
         
         //await printer finish to show reply buttons
-        await _printer.Print(_toPrint, true);
+        _printer.Print(_toPrint, true);
 
         foreach (var reply in _replies)
         {
