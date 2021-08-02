@@ -231,7 +231,7 @@ public class AdvancedWalkerController : Controller
 
         return characterInput.IsJumpKeyPressed();
     }
-    
+
     //Returns 'true' if the player presses the jump key;
     protected virtual bool IsSprintPressed()
     {
@@ -390,7 +390,9 @@ public class AdvancedWalkerController : Controller
         {
             if ((jumpKeyIsPressed == true || jumpKeyWasPressed) && !jumpInputIsLocked)
             {
-                //Call events;
+                transform.position += new Vector3(0, 0.25f);
+                
+                //Call events
                 OnGroundContactLost();
                 OnJumpStart();
 
