@@ -21,6 +21,6 @@ public class PendulumEditor : Editor
         var yMin = new Vector3(_pendulum.transform.position.x, _pendulum.transform.position.y - _pendulum.yRadius, _pendulum.transform.position.z);
 
         Handles.DrawBezier(xMin, yMin, xMin + 0.25f * _pendulum.yRadius * Vector3.down, yMin + 0.25f * _pendulum.xRadius * Vector3.left, Color.red, null, 1);
-        Handles.DrawBezier(yMin, xMax, yMin + 0.25f * _pendulum.xRadius * Vector3.right, xMax + 0.25f * _pendulum.yRadius * Vector3.down, Color.green, null, 1);
+        Handles.DrawBezier(yMin, xMax, yMin + 0.25f * _pendulum.xRadius * Vector3.right, xMax + 0.25f * _pendulum.yRadius * Vector3.down, Color.red, null, 1);
     }
 }
