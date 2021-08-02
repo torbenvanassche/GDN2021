@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class AdvancedWalkerController : Controller
 {
     //References to attached components;
     protected Transform tr;
-    protected Mover mover;
+    [NonSerialized] public Mover mover;
     protected KeyboardInput characterInput;
     protected CeilingDetector ceilingDetector;
 

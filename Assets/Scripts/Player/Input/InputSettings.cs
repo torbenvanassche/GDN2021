@@ -132,8 +132,98 @@ public class @InputSettings : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Key&Mouse"",
+                    ""groups"": """",
                     ""action"": ""TurnToAsh"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Ashen Player"",
+            ""id"": ""115ba464-86c3-4157-beb1-17a9be6f05cc"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""4d0e76d9-a0f8-46b7-8942-f608a93acdf1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""TurnToHuman"",
+                    ""type"": ""Button"",
+                    ""id"": ""4e092ff0-77fe-4e82-9ff1-a0636402b6f7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""cedd8043-4ff7-476e-bab5-44f190c5f7ca"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""f687bd2b-e1d2-4d33-81fc-ff0b558bb41c"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""433b57c9-938b-495c-a3be-819f279769f7"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""9843d5e4-c2a1-4605-abfe-e46381e10aaa"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""653401ee-bcb3-4bab-bddf-de6d4b3cf2db"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d2e432b-55ab-4113-a94d-b8aa2d99057c"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TurnToHuman"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -166,6 +256,10 @@ public class @InputSettings : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_TurnToAsh = m_Player.FindAction("TurnToAsh", throwIfNotFound: true);
+        // Ashen Player
+        m_AshenPlayer = asset.FindActionMap("Ashen Player", throwIfNotFound: true);
+        m_AshenPlayer_Move = m_AshenPlayer.FindAction("Move", throwIfNotFound: true);
+        m_AshenPlayer_TurnToHuman = m_AshenPlayer.FindAction("TurnToHuman", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -276,6 +370,47 @@ public class @InputSettings : IInputActionCollection, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Ashen Player
+    private readonly InputActionMap m_AshenPlayer;
+    private IAshenPlayerActions m_AshenPlayerActionsCallbackInterface;
+    private readonly InputAction m_AshenPlayer_Move;
+    private readonly InputAction m_AshenPlayer_TurnToHuman;
+    public struct AshenPlayerActions
+    {
+        private @InputSettings m_Wrapper;
+        public AshenPlayerActions(@InputSettings wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_AshenPlayer_Move;
+        public InputAction @TurnToHuman => m_Wrapper.m_AshenPlayer_TurnToHuman;
+        public InputActionMap Get() { return m_Wrapper.m_AshenPlayer; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AshenPlayerActions set) { return set.Get(); }
+        public void SetCallbacks(IAshenPlayerActions instance)
+        {
+            if (m_Wrapper.m_AshenPlayerActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_AshenPlayerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_AshenPlayerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_AshenPlayerActionsCallbackInterface.OnMove;
+                @TurnToHuman.started -= m_Wrapper.m_AshenPlayerActionsCallbackInterface.OnTurnToHuman;
+                @TurnToHuman.performed -= m_Wrapper.m_AshenPlayerActionsCallbackInterface.OnTurnToHuman;
+                @TurnToHuman.canceled -= m_Wrapper.m_AshenPlayerActionsCallbackInterface.OnTurnToHuman;
+            }
+            m_Wrapper.m_AshenPlayerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @TurnToHuman.started += instance.OnTurnToHuman;
+                @TurnToHuman.performed += instance.OnTurnToHuman;
+                @TurnToHuman.canceled += instance.OnTurnToHuman;
+            }
+        }
+    }
+    public AshenPlayerActions @AshenPlayer => new AshenPlayerActions(this);
     private int m_KeyMouseSchemeIndex = -1;
     public InputControlScheme KeyMouseScheme
     {
@@ -292,5 +427,10 @@ public class @InputSettings : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnTurnToAsh(InputAction.CallbackContext context);
+    }
+    public interface IAshenPlayerActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnTurnToHuman(InputAction.CallbackContext context);
     }
 }
