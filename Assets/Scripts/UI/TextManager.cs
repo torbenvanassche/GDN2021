@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using NodeEditor;
 using Nodes;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UIElements;
 using Utilities;
 using Utils;
@@ -20,10 +19,6 @@ public class TextManager : Singleton<TextManager>
     [SerializeField] private int printSpeed = 10;
     private Printer _printer;
 
-    public delegate void onFinishPrintDelegate();
-    public static onFinishPrintDelegate finishPrintDelegate;
-    
-
     void Awake()
     {
         // The root allows us to Query ("Q") elements using things like their name (which is the default).  Similar to JQuery.
@@ -40,7 +35,7 @@ public class TextManager : Singleton<TextManager>
         doc.rootVisualElement.visible = false;
     }
 
-    public void UpdateUI(CharacterData _character, string _toPrint, List<Reply> _replies)
+    public async void UpdateUI(CharacterData _character, string _toPrint, List<Reply> _replies)
     {
         // Currently required to change images like this, see: https://forum.unity.com/threads/how-to-displays-rawimage-in-the-uitoolkit.989257/
         // Moreover, they must be in StyleBackground format which takes, among other things, a Texture2D.
@@ -48,28 +43,25 @@ public class TextManager : Singleton<TextManager>
         characterName.text = _character.name;
         
         //await printer finish to show reply buttons
-        _printer.Print(_toPrint, true);
+        await _printer.Print(_toPrint, true);
 
-        finishPrintDelegate += () =>
+        foreach (var reply in _replies)
         {
-            foreach (var reply in _replies)
+            var button = new Button(() =>
             {
-                var button = new Button(() =>
+                //handle graph progression
+                (reply.graph as Graph).CurrentNode = reply.GetNext();
+
+                //reverse to prevent going out of range, remove all buttons
+                for (int i = replies.childCount - 1; i >= 0; i--)
                 {
-                    //handle graph progression
-                    (reply.graph as Graph).CurrentNode = reply.GetNext();
+                    replies.RemoveAt(i);
+                }
+            });
 
-                    //reverse to prevent going out of range, remove all buttons
-                    for (int i = replies.childCount - 1; i >= 0; i--)
-                    {
-                        replies.RemoveAt(i);
-                    }
-                });
-
-                button.text = reply.text;
-                button.style.width = new Length(50, LengthUnit.Percent);
-                replies.Add(button);
-            }
-        };
+            button.text = reply.text;
+            button.style.width = new Length(50, LengthUnit.Percent);
+            replies.Add(button);
+        }
     }
 }

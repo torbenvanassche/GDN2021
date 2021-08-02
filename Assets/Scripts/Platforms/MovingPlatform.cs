@@ -1,27 +1,45 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class Movement : MonoBehaviour
+public class MovingPlatform : MonoBehaviour
 {
+    private enum MovementMode
+    {
+        None,
+        Sine
+    };
 
-    private enum MovementMode { None, Sine };
-    [SerializeField] MovementMode movementMode = MovementMode.None;
+    private enum EndMode
+    {
+        Cycle,
+        Backtrack
+    };
 
-    private enum EndMode { Cycle, Backtrack };
     [SerializeField] EndMode endMode = EndMode.Backtrack;
-
-    [SerializeField] private float currentInterpolTime;
-    public List<Transform> waypoints;
+    [SerializeField] MovementMode movementMode = MovementMode.None;
     [SerializeField] private float speed = 1f;
+    [SerializeField] private GameObject _target;
+
+    [Button]
+    private void SetToFirst()
+    {
+        if(_target && waypoints.Count > 0) _target.transform.position = waypoints[0];
+    }
+
+    private float currentInterpolTime;
     private int currentWaypointIDX;
     private int targetWaypointIDX;
     private bool isReversed;
 
+    [SerializeField] private List<Vector3> waypoints;
+
     protected void Awake()
     {
         currentWaypointIDX = 0;
-        targetWaypointIDX = GetNextWaypointIDX(currentWaypointIDX);
+        targetWaypointIDX = GetNextWaypointIDX();
     }
 
     protected void Update()
@@ -29,8 +47,8 @@ public class Movement : MonoBehaviour
         // For each t in [0, 1], we interpolate depending on the MovementMode.
         if (currentInterpolTime <= 1)
         {
-            Transform source = waypoints[currentWaypointIDX];
-            Transform target = waypoints[targetWaypointIDX];
+            Vector3 source = waypoints[currentWaypointIDX];
+            Vector3 target = waypoints[targetWaypointIDX];
 
             switch (movementMode)
             {
@@ -50,7 +68,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            currentWaypointIDX = GetNextWaypointIDX(currentWaypointIDX);
+            currentWaypointIDX = GetNextWaypointIDX();
 
 
             // If in backtrack mode, we reverse if necessary based on where the currentWaypointIDX is.
@@ -66,67 +84,71 @@ public class Movement : MonoBehaviour
                 }
             }
 
-            targetWaypointIDX = GetNextWaypointIDX(currentWaypointIDX);
+            targetWaypointIDX = GetNextWaypointIDX();
             currentInterpolTime = 0;
         }
     }
 
-    private int GetNextWaypointIDX(int idx)
+    private int GetNextWaypointIDX()
     {
         // For cycle mode, we can use modulus.
         // For backtrack mode, we need to know if we're reversed to use a "modulus".
         switch (endMode)
         {
             case EndMode.Cycle:
-                return (idx + 1) % waypoints.Count;
+                return (currentWaypointIDX + 1) % waypoints.Count;
 
             case EndMode.Backtrack:
-                if (isReversed && idx == 0)
+                if (isReversed && currentWaypointIDX == 0)
                 {
                     return waypoints.Count - 1;
                 }
-                else if (!isReversed && idx == waypoints.Count - 1)
+                else if (!isReversed && currentWaypointIDX == waypoints.Count - 1)
                 {
                     return 0;
                 }
                 else
                 {
-                    return isReversed ? idx - 1 : idx + 1;
+                    return isReversed ? currentWaypointIDX - 1 : currentWaypointIDX + 1;
                 }
             default:
-                Debug.LogError($"No such MovementMode for {transform.name}");
                 return 0;
         }
     }
 
-    private void CosineDampMovement(Transform source, Transform target, float t)
+    private void CosineDampMovement(Vector3 source, Vector3 target, float t)
     {
         // Uses a Cosine dampening to interpolate between positions.
-        var lengthX = target.position.x - source.position.x;
+        var lengthX = target.x - source.x;
         var offsetX = lengthX != 0 ? lengthX * Mathf.Cos((Mathf.PI / 2f) * (1 - t)) : 0;
 
-        var lengthY = target.position.y - source.position.y;
+        var lengthY = target.y - source.y;
         var offsetY = lengthY != 0 ? lengthY * Mathf.Cos((Mathf.PI / 2f) * (1 - t)) : 0;
 
-        var lengthZ = target.position.z - source.position.z;
+        var lengthZ = target.z - source.z;
         var offsetZ = lengthZ != 0 ? lengthZ * Mathf.Cos((Mathf.PI / 2f) * (1 - t)) : 0;
 
-        transform.position = source.position + new Vector3(offsetX, offsetY, offsetZ);
+        _target.transform.position = source + new Vector3(offsetX, offsetY, offsetZ);
     }
 
-    private void LinearMovement(Transform source, Transform target, float t)
+    private void LinearMovement(Vector3 source, Vector3 target, float t)
     {
         // LERPs to the next position.
-        transform.position = Vector3.Lerp(source.position, target.position, t);
+        _target.transform.position = Vector3.Lerp(source, target, t);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
+        for (var index = 0; index < waypoints.Count - 1; index++)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(waypoints[index], waypoints[index + 1]);
+        }
+        
         foreach (var waypoint in waypoints)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawSphere(waypoint.position, 0.05f);
+            Gizmos.DrawSphere(waypoint, 0.05f);
         }
     }
 }
-

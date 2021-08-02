@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Pendulum : MonoBehaviour
 {
 
-    [SerializeField] float xRadius = 4f;
-    [SerializeField] float yRadius = 2f;
+    public float xRadius = 4f;
+    public float yRadius = 2f;
     [SerializeField] float speed = 0.25f;
+    [SerializeField] private GameObject target;
+    
     private float currentInterpolTime = 0.0f;
 
     private void Update()
@@ -19,6 +23,14 @@ public class Pendulum : MonoBehaviour
         float x = xRadius * Mathf.Cos(2 * Mathf.PI * currentInterpolTime);
         float y = -yRadius * Mathf.Pow(Mathf.Sin(-2 * Mathf.PI * currentInterpolTime), 2);
 
-        transform.localPosition = new Vector3(x, y, 0);
+        target.transform.localPosition = new Vector3(x, y, 0);
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(new Vector3(transform.position.x - xRadius, transform.position.y, transform.position.z), 0.05f);
+        Gizmos.DrawSphere(new Vector3(transform.position.x + xRadius, transform.position.y, transform.position.z), 0.05f);
+        Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - yRadius, transform.position.z), 0.05f);
     }
 }

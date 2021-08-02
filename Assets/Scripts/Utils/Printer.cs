@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,7 +9,7 @@ namespace Utils
     public class Printer : MonoBehaviour
     {
         private TextElement _textBox = null;
-        private float _speed = 0f;
+        private int _speed = 0;
 
         public void Initialize(TextElement textComponent, int speed)
         {
@@ -15,29 +17,24 @@ namespace Utils
             _speed = speed;
         }
 
-        public void Print(string toPrint, bool clear = false)
+        public Task Print(string toPrint, bool clear = false)
         {
-            if (clear) ClearTextbox();
-            StartCoroutine(DelayPrint(toPrint));
+            if (clear) ClearTextbox(); 
+            return DelayPrint(toPrint);
         }
 
-        public void ClearTextbox()
+        private void ClearTextbox()
         {
             _textBox.text = string.Empty;
         }
 
-        IEnumerator DelayPrint(string toPrint)
+        async Task DelayPrint(string toPrint)
         {
             foreach (char letter in toPrint)
             {
                 _textBox.text += letter;
-                yield return new WaitForSeconds(_speed / 1000);
+                await UniTask.DelayFrame(_speed);
             }
-            
-            //draw the buttons here
-            TextManager.finishPrintDelegate.Invoke();
-            TextManager.finishPrintDelegate = delegate {  };
-            
         }
     }
 }
