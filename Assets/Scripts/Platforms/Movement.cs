@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,13 +18,13 @@ public class Movement : MonoBehaviour
     private int targetWaypointIDX;
     private bool isReversed;
 
-    void Start()
+    protected void Awake()
     {
         currentWaypointIDX = 0;
         targetWaypointIDX = GetNextWaypointIDX(currentWaypointIDX);
     }
 
-    void Update()
+    protected void Update()
     {
         // For each t in [0, 1], we interpolate depending on the MovementMode.
         if (currentInterpolTime <= 1)
@@ -118,6 +118,15 @@ public class Movement : MonoBehaviour
     {
         // LERPs to the next position.
         transform.position = Vector3.Lerp(source.position, target.position, t);
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach (var waypoint in waypoints)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(waypoint.position, 0.05f);
+        }
     }
 }
 

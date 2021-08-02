@@ -55,7 +55,7 @@ public class Mover : MonoBehaviour
         Setup();
 
         //Initialize sensor;
-        sensor = new Sensor(this.tr, col);
+        sensor = new Sensor(tr, col);
         RecalculateColliderDimensions();
         RecalibrateSensor();
     }

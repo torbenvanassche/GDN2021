@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 6.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -464,6 +464,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  invokeAlways: 0
   graph: {fileID: 11400000, guid: c0587625fa274764b8182660b075d587, type: 2}
 --- !u!65 &1214944830
 BoxCollider:
@@ -589,7 +590,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403351373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 4.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -854,6 +855,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2145909018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6604305349493879498, guid: 25ed4cfa02b48dc498e51d11cf725ae5, type: 3}
+  m_PrefabInstance: {fileID: 6604305349540969835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2145909024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145909018}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 0.8, z: 0.8}
+  m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &2145909025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145909018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ee8033db248d64fbb3cae5fe3b0ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6604305349540969835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -909,8 +940,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
-    - target: {fileID: 6604305348842754349, guid: 25ed4cfa02b48dc498e51d11cf725ae5, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 6604305349493879496, guid: 25ed4cfa02b48dc498e51d11cf725ae5, type: 3}
+      propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
