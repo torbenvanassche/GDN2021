@@ -133,8 +133,8 @@
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "4d0e76d9-a0f8-46b7-8942-f608a93acdf1",
-                    "expectedControlType": "Vector2",
+                    "id": "1e650e8f-ea31-43b3-afc8-1126cd2ec30d",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
@@ -149,61 +149,6 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "cedd8043-4ff7-476e-bab5-44f190c5f7ca",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Up",
-                    "id": "f687bd2b-e1d2-4d33-81fc-ff0b558bb41c",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Down",
-                    "id": "433b57c9-938b-495c-a3be-819f279769f7",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Left",
-                    "id": "9843d5e4-c2a1-4605-abfe-e46381e10aaa",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Right",
-                    "id": "653401ee-bcb3-4bab-bddf-de6d4b3cf2db",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "4d2e432b-55ab-4113-a94d-b8aa2d99057c",
                     "path": "<Mouse>/rightButton",
@@ -213,6 +158,39 @@
                     "action": "TurnToHuman",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "42b95852-1c7f-4bb4-b584-5a1fc52aabb0",
+                    "path": "1DAxis(whichSideWins=1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Negative",
+                    "id": "ef7f7bee-7579-4e08-8025-ce9edeadf743",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Positive",
+                    "id": "cf3bf554-aab8-47b4-9d87-6c47d84ac9e8",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

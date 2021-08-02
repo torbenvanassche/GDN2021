@@ -32,8 +32,8 @@ public class KeyboardInput : MonoBehaviour
         //ashen player
         Controls.Instance.Input.AshenPlayer.Move.performed += context =>
         {
-            var inputData = context.ReadValue<Vector2>();
-            _moveDirection = new Vector3(inputData.x, inputData.y, 0);
+            var inputData = context.ReadValue<float>();
+            _moveDirection = new Vector3(inputData, 0, 0);
         };
         Controls.Instance.Input.AshenPlayer.Move.canceled += context => { _moveDirection = Vector3.zero; };
         Controls.Instance.Input.AshenPlayer.TurnToHuman.performed += context => _mechanics.SetHuman();
