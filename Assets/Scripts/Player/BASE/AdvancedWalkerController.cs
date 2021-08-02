@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class AdvancedWalkerController : Controller
@@ -39,7 +40,7 @@ public class AdvancedWalkerController : Controller
     protected Vector3 momentum = Vector3.zero;
 
     //Saved velocity from last frame;
-    Vector3 savedVelocity = Vector3.zero;
+    public Vector3 savedVelocity = Vector3.zero;
 
     //Saved horizontal movement velocity from last frame;
     Vector3 savedMovementVelocity = Vector3.zero;
@@ -66,7 +67,7 @@ public class AdvancedWalkerController : Controller
         Jumping
     }
 
-    ControllerState currentControllerState = ControllerState.Falling;
+    public ControllerState currentControllerState = ControllerState.Falling;
 
     [Tooltip(
         "Optional camera transform used for calculating movement direction. If assigned, character movement will take camera view into account.")]
@@ -522,8 +523,7 @@ public class AdvancedWalkerController : Controller
         jumpInputIsLocked = true;
 
         //Call event;
-        if (OnJump != null)
-            OnJump(momentum);
+        OnJump?.Invoke(momentum);
 
         if (useLocalMomentum)
             momentum = tr.worldToLocalMatrix * momentum;
