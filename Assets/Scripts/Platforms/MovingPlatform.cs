@@ -26,7 +26,7 @@ public class MovingPlatform : MonoBehaviour
     [Button]
     private void SetToFirst()
     {
-        if(_target && waypoints.Count > 0) _target.transform.position = waypoints[0];
+        if(_target && waypoints.Count > 0) _target.transform.position = transform.position + waypoints[0];
     }
 
     private float currentInterpolTime;
@@ -134,7 +134,7 @@ public class MovingPlatform : MonoBehaviour
     private void LinearMovement(Vector3 source, Vector3 target, float t)
     {
         // LERPs to the next position.
-        _target.transform.position = Vector3.Lerp(source, target, t);
+        _target.transform.position = Vector3.Lerp(transform.position + source, target, t);
     }
 
     private void OnDrawGizmosSelected()
