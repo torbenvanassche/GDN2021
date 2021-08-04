@@ -4,7 +4,7 @@ using UnityEngine;
 public class Animations : MonoBehaviour
 {
     private SidescrollerController _controller;
-    private Animator _animator;
+    [SerializeField] private Animator _animator;
     
     private static readonly int JumpHash = Animator.StringToHash("Jump");
     private static readonly int Move = Animator.StringToHash("Move");
@@ -12,7 +12,6 @@ public class Animations : MonoBehaviour
     private void Awake()
     {
         _controller = GetComponent<SidescrollerController>();
-        _animator = GetComponent<Animator>();
 
         _controller.OnJump += Jump;
     }

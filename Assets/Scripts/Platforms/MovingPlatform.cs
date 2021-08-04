@@ -128,7 +128,7 @@ public class MovingPlatform : MonoBehaviour
         var lengthZ = target.z - source.z;
         var offsetZ = lengthZ != 0 ? lengthZ * Mathf.Cos((Mathf.PI / 2f) * (1 - t)) : 0;
 
-        _target.transform.position = source + new Vector3(offsetX, offsetY, offsetZ);
+        _target.transform.position = transform.position + source + new Vector3(offsetX, offsetY, offsetZ);
     }
 
     private void LinearMovement(Vector3 source, Vector3 target, float t)
@@ -142,13 +142,13 @@ public class MovingPlatform : MonoBehaviour
         for (var index = 0; index < waypoints.Count - 1; index++)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(waypoints[index], waypoints[index + 1]);
+            Gizmos.DrawLine(transform.position + waypoints[index], transform.position + waypoints[index + 1]);
         }
         
         foreach (var waypoint in waypoints)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawSphere(waypoint, 0.05f);
+            Gizmos.DrawSphere(transform.position + waypoint, 0.05f);
         }
     }
 }
