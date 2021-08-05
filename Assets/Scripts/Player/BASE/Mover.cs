@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Mover : MonoBehaviour
 {
@@ -7,7 +6,7 @@ public class Mover : MonoBehaviour
     [Header("Mover Options :")] [Range(0f, 1f)] [SerializeField]
     float stepHeightRatio = 0.25f;
 
-    [Header("Collider Options :"), Range(0.01f, 1)] [SerializeField]
+    [Header("Collider Options :")] [SerializeField]
     public float colliderHeight = 2f;
 
     [SerializeField] float colliderThickness = 1f;

@@ -134,7 +134,7 @@ public class MovingPlatform : MonoBehaviour
     private void LinearMovement(Vector3 source, Vector3 target, float t)
     {
         // LERPs to the next position.
-        _target.transform.position = Vector3.Lerp(transform.position + source, target, t);
+        _target.transform.position = Vector3.Lerp(transform.position + source, transform.position + target, t);
     }
 
     private void OnDrawGizmosSelected()
