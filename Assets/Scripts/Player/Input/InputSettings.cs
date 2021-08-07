@@ -57,6 +57,14 @@ public class @InputSettings : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftMouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""7836a116-d2bc-4770-825b-6919b01a9129"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -134,6 +142,17 @@ public class @InputSettings : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""TurnToAsh"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea1d3bb5-6a77-4bcc-af77-10173f3b1a72"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -234,6 +253,7 @@ public class @InputSettings : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_TurnToAsh = m_Player.FindAction("TurnToAsh", throwIfNotFound: true);
+        m_Player_LeftMouse = m_Player.FindAction("LeftMouse", throwIfNotFound: true);
         // Ashen Player
         m_AshenPlayer = asset.FindActionMap("Ashen Player", throwIfNotFound: true);
         m_AshenPlayer_Move = m_AshenPlayer.FindAction("Move", throwIfNotFound: true);
@@ -292,6 +312,7 @@ public class @InputSettings : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_TurnToAsh;
+    private readonly InputAction m_Player_LeftMouse;
     public struct PlayerActions
     {
         private @InputSettings m_Wrapper;
@@ -301,6 +322,7 @@ public class @InputSettings : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @TurnToAsh => m_Wrapper.m_Player_TurnToAsh;
+        public InputAction @LeftMouse => m_Wrapper.m_Player_LeftMouse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -325,6 +347,9 @@ public class @InputSettings : IInputActionCollection, IDisposable
                 @TurnToAsh.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTurnToAsh;
                 @TurnToAsh.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTurnToAsh;
                 @TurnToAsh.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTurnToAsh;
+                @LeftMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMouse;
+                @LeftMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMouse;
+                @LeftMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMouse;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -344,6 +369,9 @@ public class @InputSettings : IInputActionCollection, IDisposable
                 @TurnToAsh.started += instance.OnTurnToAsh;
                 @TurnToAsh.performed += instance.OnTurnToAsh;
                 @TurnToAsh.canceled += instance.OnTurnToAsh;
+                @LeftMouse.started += instance.OnLeftMouse;
+                @LeftMouse.performed += instance.OnLeftMouse;
+                @LeftMouse.canceled += instance.OnLeftMouse;
             }
         }
     }
@@ -405,6 +433,7 @@ public class @InputSettings : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnTurnToAsh(InputAction.CallbackContext context);
+        void OnLeftMouse(InputAction.CallbackContext context);
     }
     public interface IAshenPlayerActions
     {
