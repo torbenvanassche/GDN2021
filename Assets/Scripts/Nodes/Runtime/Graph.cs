@@ -42,9 +42,18 @@ namespace Nodes
         {
             CurrentNode = (State) nodes.Find(node => node.GetType() == typeof(Start));
             CurrentNode = CurrentNode.GetNext();
+
+            Controls.Instance.Input.Player.LeftMouse.performed += context =>
+            {
+                if (CurrentNode.GetNext() is Text)
+                {
+                    CurrentNode = CurrentNode.GetNext();   
+                }
+            };
             
             //enable printfield
             TextManager.Instance.doc.rootVisualElement.visible = true;
+            Manager.Instance.activeGraph = this;
         }
 
         public override string ToString()
