@@ -19,6 +19,9 @@ public class Mechanics : MonoBehaviour
     [SerializeField, TabGroup("ASH")] private float ashSpeed = 3f;
     [SerializeField, TabGroup("ASH")] private float ashGravity = 3f;
 
+    [SerializeField] private GameObject playerObject = null;
+    [SerializeField] private GameObject ashObject = null;
+
     //store initial values
     private float _humanHeight = 0;
     private float _humanSpeed = 0;
@@ -55,6 +58,9 @@ public class Mechanics : MonoBehaviour
         CurrentMechanic += Ash;
         
         _controller.mover.RecalculateColliderDimensions();
+        
+        playerObject.SetActive(false);
+        ashObject.SetActive(true);
     }
 
     public void SetHuman()
@@ -74,6 +80,9 @@ public class Mechanics : MonoBehaviour
         CurrentMechanic -= Ash;
         
         _controller.mover.RecalculateColliderDimensions();
+        
+        ashObject.SetActive(false);
+        playerObject.SetActive(true);
     }
 
     private void Ash()
