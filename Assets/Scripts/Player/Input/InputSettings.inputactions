@@ -44,14 +44,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "LeftMouse",
-                    "type": "Button",
-                    "id": "828277f7-2894-4ad2-aada-8cd717d6a51a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -129,17 +121,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "TurnToAsh",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a7399fc0-a3c4-4fc7-9bff-fa98f47739fc",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LeftMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
