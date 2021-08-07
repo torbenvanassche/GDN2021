@@ -9,6 +9,9 @@ public class KeyboardInput : MonoBehaviour
 
     private Mechanics _mechanics;
 
+    public GameObject playerTurn;
+    private bool playerTurned = false;
+
     private void Awake()
     {
         Controls.Instance.Enable();
@@ -39,6 +42,36 @@ public class KeyboardInput : MonoBehaviour
         Controls.Instance.Input.AshenPlayer.TurnToHuman.performed += context => _mechanics.SetHuman();
     }
 
+
+    //Player turns other direction
+    void Update()
+    {
+        if (Input.GetKeyDown("a"))
+        {
+            playerTurned = true;
+            playerDirection();
+        }
+
+        if (Input.GetKeyDown("d"))
+        {
+            playerTurned = false;
+            playerDirection();
+        }
+    }
+
+    public void playerDirection()
+    {
+        if (playerTurned)
+        {
+            playerTurn.transform.localRotation = Quaternion.Euler(0, -90, 0);
+        }
+        else
+        {
+            playerTurn.transform.localRotation = Quaternion.Euler(0, 90, 0);
+        }
+    }
+    
+
     public float GetHorizontalMovementInput()
     {
         return _moveDirection.x;
@@ -58,4 +91,5 @@ public class KeyboardInput : MonoBehaviour
     {
         return _jump;
     }
+
 }
