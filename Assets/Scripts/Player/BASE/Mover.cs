@@ -3,10 +3,13 @@
 public class Mover : MonoBehaviour
 {
     //Collider variables;
-    [Header("Mover Options :")] [Range(0f, 1f)] [SerializeField]
-    float stepHeightRatio = 0.25f;
+    [Header("Mover Options :")]
+    [Range(0f, 1f)]
+    [SerializeField]
+    float stepHeightRatio = 0f;
 
-    [Header("Collider Options :")] [SerializeField]
+    [Header("Collider Options :")]
+    [SerializeField]
     public float colliderHeight = 2f;
 
     [SerializeField] float colliderThickness = 1f;
@@ -18,14 +21,17 @@ public class Mover : MonoBehaviour
     CapsuleCollider capsuleCollider;
 
     //Sensor variables;
-    [Header("Sensor Options :")] [SerializeField]
+    [Header("Sensor Options :")]
+    [SerializeField]
     public Sensor.CastType sensorType = Sensor.CastType.Raycast;
 
     private float sensorRadiusModifier = 0.8f;
     private int currentLayer;
     [SerializeField] bool isInDebugMode = false;
 
-    [Header("Sensor Array Options :")] [SerializeField] [Range(1, 5)]
+    [Header("Sensor Array Options :")]
+    [SerializeField]
+    [Range(1, 5)]
     int sensorArrayRows = 1;
 
     [SerializeField] [Range(3, 10)] int sensorArrayRayCount = 6;
