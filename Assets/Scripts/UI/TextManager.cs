@@ -47,6 +47,13 @@ public class TextManager : Singleton<TextManager>
 
         foreach (var reply in _replies)
         {
+            Controls.Instance.Input.Player.LeftMouse.performed += context =>
+            {
+                
+            };
+            
+            if (reply == null) return;
+            
             var button = new Button(() =>
             {
                 //handle graph progression
