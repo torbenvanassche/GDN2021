@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: Text
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8, y: -168}
+  position: {x: -8, y: -72}
   folded: 0
   ports:
     keys:
