@@ -8,7 +8,6 @@ using System.Collections.Generic;
 public class MenuController : MonoBehaviour
 {
     public AudioMixer mixer;
-    public AudioSource SFX;
 
     public GameObject menu;
     public GameObject cutsceneGroup;
@@ -30,10 +29,5 @@ public class MenuController : MonoBehaviour
     public void VolumeChange(float volume)
     {
         mixer.SetFloat("Volume", volume);
-    }
-
-    public void PlaySoundOnce(AudioClip clip)
-    {
-        SFX.PlayOneShot(clip);
     }
 }

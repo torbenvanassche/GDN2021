@@ -36,7 +36,7 @@ namespace Nodes
         {
             _currentNode = null;
             TextManager.Instance.doc.rootVisualElement.visible = false;
-            //Controls.Instance.Input.Player.LeftMouse.Disable();
+            Controls.Instance.Input.Player.LeftMouse.Disable();
         }
 
         public void Load()

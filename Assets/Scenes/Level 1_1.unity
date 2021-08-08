@@ -9861,7 +9861,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 50fd427c68e47214b8ceae809cb32e8d, type: 2}
-  SFX: {fileID: 481922398}
   menu: {fileID: 1229696634}
   cutsceneGroup: {fileID: 1388022250}
 --- !u!82 &1783290997
@@ -9874,7 +9873,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 50fd427c68e47214b8ceae809cb32e8d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 57bcbc1b11d195543905a84b00067315, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 589791aa0e1e6e54a993d46e21c1bbe7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
