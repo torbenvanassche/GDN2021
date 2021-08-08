@@ -23,6 +23,17 @@ namespace NodeEditor
             return null;
         }
 
+        public override State GetNext()
+        {
+            var nodes = GetOutputNodes().ToList();
+            if (nodes.Count > 0)
+            {
+                return nodes[0];
+            }
+
+            return null;
+        }
+
         private List<Reply> GetReplies()
         {
             var replies = new List<Reply>();

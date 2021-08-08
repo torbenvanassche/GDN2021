@@ -36,6 +36,7 @@ namespace Nodes
         {
             _currentNode = null;
             TextManager.Instance.doc.rootVisualElement.visible = false;
+            //Controls.Instance.Input.Player.LeftMouse.Disable();
         }
 
         public void Load()
@@ -43,6 +44,10 @@ namespace Nodes
             CurrentNode = (State) nodes.Find(node => node.GetType() == typeof(Start));
             CurrentNode = CurrentNode.GetNext();
             
+            Controls.Instance.Input.Player.LeftMouse.Enable();
+
+            Manager.Instance.activeGraph = this;
+
             //enable printfield
             TextManager.Instance.doc.rootVisualElement.visible = true;
         }
