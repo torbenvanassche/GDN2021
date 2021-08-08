@@ -1,0 +1,434 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7783654844073660980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366c64979d5bbe40ae489507866a49a, type: 3}
+  m_Name: Text
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1048, y: -104}
+  folded: 0
+  ports:
+    keys:
+    - inNode
+    - outNode
+    values:
+    - _fieldName: inNode
+      _node: {fileID: -7783654844073660980}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outNode
+        node: {fileID: -3443105877714514173}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outNode
+      _node: {fileID: -7783654844073660980}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inNode
+        node: {fileID: 7592383586723193272}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  character: {fileID: 11400000, guid: ccc6357597bfe8a42bf6e7c552be9f3e, type: 2}
+  text: I will grant you access to see through the veil of reality. The spirit you
+    search for has lost pieces of themselves. On your journey, you must find them
+    and make the soul whole again.
+--- !u!114 &-5973920187937596144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083154e155f48c744a7e552e086f3d6a, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -360, y: -120}
+  folded: 0
+  ports:
+    keys:
+    - inNode
+    - outNode
+    values:
+    - _fieldName: inNode
+      _node: {fileID: -5973920187937596144}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outNode
+      _node: {fileID: -5973920187937596144}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inNode
+        node: {fileID: -1921488027689131551}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+--- !u!114 &-4799122683731861040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366c64979d5bbe40ae489507866a49a, type: 3}
+  m_Name: Text
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 24, y: -104}
+  folded: 0
+  ports:
+    keys:
+    - inNode
+    - outNode
+    values:
+    - _fieldName: inNode
+      _node: {fileID: -4799122683731861040}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outNode
+        node: {fileID: -1921488027689131551}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outNode
+      _node: {fileID: -4799122683731861040}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inNode
+        node: {fileID: -3846406481893527493}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  character: {fileID: 11400000, guid: ccc6357597bfe8a42bf6e7c552be9f3e, type: 2}
+  text: I can sense your sorrow.
+--- !u!114 &-4266086692776137395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366c64979d5bbe40ae489507866a49a, type: 3}
+  m_Name: Text
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1576, y: -104}
+  folded: 0
+  ports:
+    keys:
+    - inNode
+    - outNode
+    values:
+    - _fieldName: inNode
+      _node: {fileID: -4266086692776137395}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outNode
+        node: {fileID: 7592383586723193272}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outNode
+      _node: {fileID: -4266086692776137395}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  character: {fileID: 11400000, guid: ccc6357597bfe8a42bf6e7c552be9f3e, type: 2}
+  text: ... I wish you luck.
+--- !u!114 &-3846406481893527493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366c64979d5bbe40ae489507866a49a, type: 3}
+  m_Name: Text
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 280, y: -104}
+  folded: 0
+  ports:
+    keys:
+    - inNode
+    - outNode
+    values:
+    - _fieldName: inNode
+      _node: {fileID: -3846406481893527493}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outNode
+        node: {fileID: -4799122683731861040}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outNode
+      _node: {fileID: -3846406481893527493}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inNode
+        node: {fileID: 1560387154154095743}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  character: {fileID: 11400000, guid: ccc6357597bfe8a42bf6e7c552be9f3e, type: 2}
+  text: The companion you lost was very special to you, wasn't it?
+--- !u!114 &-3443105877714514173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366c64979d5bbe40ae489507866a49a, type: 3}
+  m_Name: Text
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 792, y: -104}
+  folded: 0
+  ports:
+    keys:
+    - inNode
+    - outNode
+    values:
+    - _fieldName: inNode
+      _node: {fileID: -3443105877714514173}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outNode
+        node: {fileID: 1560387154154095743}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outNode
+      _node: {fileID: -3443105877714514173}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inNode
+        node: {fileID: -7783654844073660980}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  character: {fileID: 11400000, guid: ccc6357597bfe8a42bf6e7c552be9f3e, type: 2}
+  text: Perhaps I could give you a chance to bring them back. Their spirit is lost
+    in this forest, searching for the afterlife.
+--- !u!114 &-1921488027689131551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366c64979d5bbe40ae489507866a49a, type: 3}
+  m_Name: Text
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -264, y: -104}
+  folded: 0
+  ports:
+    keys:
+    - inNode
+    - outNode
+    values:
+    - _fieldName: inNode
+      _node: {fileID: -1921488027689131551}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outNode
+        node: {fileID: -5973920187937596144}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outNode
+      _node: {fileID: -1921488027689131551}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inNode
+        node: {fileID: -4799122683731861040}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  character: {fileID: 11400000, guid: ccc6357597bfe8a42bf6e7c552be9f3e, type: 2}
+  text: ...
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c23ea759166534f911705b0fc7fe00, type: 3}
+  m_Name: Level 1_1
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -5973920187937596144}
+  - {fileID: -1921488027689131551}
+  - {fileID: -4799122683731861040}
+  - {fileID: -3846406481893527493}
+  - {fileID: 1560387154154095743}
+  - {fileID: -3443105877714514173}
+  - {fileID: -7783654844073660980}
+  - {fileID: 7592383586723193272}
+  - {fileID: -4266086692776137395}
+--- !u!114 &1560387154154095743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366c64979d5bbe40ae489507866a49a, type: 3}
+  m_Name: Text
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 536, y: -104}
+  folded: 0
+  ports:
+    keys:
+    - inNode
+    - outNode
+    values:
+    - _fieldName: inNode
+      _node: {fileID: 1560387154154095743}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outNode
+        node: {fileID: -3846406481893527493}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outNode
+      _node: {fileID: 1560387154154095743}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inNode
+        node: {fileID: -3443105877714514173}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  character: {fileID: 11400000, guid: ccc6357597bfe8a42bf6e7c552be9f3e, type: 2}
+  text: ...
+--- !u!114 &7592383586723193272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366c64979d5bbe40ae489507866a49a, type: 3}
+  m_Name: Text
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1304, y: -104}
+  folded: 0
+  ports:
+    keys:
+    - inNode
+    - outNode
+    values:
+    - _fieldName: inNode
+      _node: {fileID: 7592383586723193272}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outNode
+        node: {fileID: -7783654844073660980}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outNode
+      _node: {fileID: 7592383586723193272}
+      _typeQualifiedName: Nodes.Empty, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inNode
+        node: {fileID: -4266086692776137395}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  character: {fileID: 11400000, guid: ccc6357597bfe8a42bf6e7c552be9f3e, type: 2}
+  text: Otherwise, the spirit cannot be reborn. I will give you one of the piececs
+    waiting for you here.
