@@ -15,21 +15,12 @@ public class CutsceneOne : MonoBehaviour
     public Animation spiritAnimIdle;
     public Animation petAnimIdle;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
 
     IEnumerator CutsceneTimer()
     {
-
+        spiritAnim.Play("spiritDecent");
+        yield return new WaitForSeconds(5);
     }
 }
