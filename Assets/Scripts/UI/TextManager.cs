@@ -47,6 +47,8 @@ public class TextManager : Singleton<TextManager>
 
         foreach (var reply in _replies)
         {
+            if (!reply) return; 
+            
             var button = new Button(() =>
             {
                 //handle graph progression
@@ -62,6 +64,19 @@ public class TextManager : Singleton<TextManager>
             button.text = reply.text;
             button.style.width = new Length(50, LengthUnit.Percent);
             replies.Add(button);
+        }
+    }
+
+    public void Next()
+    {
+        var text = Manager.Instance.activeGraph.CurrentNode.GetNext() as Text;
+        if (text)
+        {
+            Manager.Instance.activeGraph.CurrentNode = text;
+        }
+        else
+        {
+            Manager.Instance.activeGraph.Unload();
         }
     }
 }

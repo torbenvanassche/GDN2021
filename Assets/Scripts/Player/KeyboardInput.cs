@@ -31,6 +31,12 @@ public class KeyboardInput : MonoBehaviour
         Controls.Instance.Input.Player.Sprint.performed += context => _sprint = true;
         Controls.Instance.Input.Player.Sprint.canceled += context => _sprint = false;
         Controls.Instance.Input.Player.TurnToAsh.performed += context => _mechanics.SetAsh();
+        Controls.Instance.Input.Player.LeftMouse.performed += context =>
+        {
+            TextManager.Instance.Next();
+        };
+        
+        Controls.Instance.Input.Player.LeftMouse.Disable();
         
         //ashen player
         Controls.Instance.Input.AshenPlayer.Move.performed += context =>

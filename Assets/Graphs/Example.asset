@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -360, y: -136}
+  position: {x: -360, y: -120}
   folded: 0
   ports:
     keys:
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: Text
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -8, y: -72}
+  position: {x: -8, y: -88}
   folded: 0
   ports:
     keys:
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: Text
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -267, y: -161.5}
+  position: {x: -264, y: -104}
   folded: 0
   ports:
     keys:
