@@ -6,7 +6,8 @@ public class AttachPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Manager.Instance.player.gameObject.transform.SetParent(transform);
+            //Manager.Instance.player.gameObject.transform.SetParent(transform);
+            other.transform.SetParent(transform);
         }
     }
 
@@ -14,7 +15,8 @@ public class AttachPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Manager.Instance.player.gameObject.transform.SetParent(null);
+            //Manager.Instance.player.gameObject.transform.SetParent(null);
+            other.transform.parent = null;
         }
     }
 }
