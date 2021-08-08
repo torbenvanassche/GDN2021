@@ -8,6 +8,8 @@ public class Mechanics : MonoBehaviour
         Human,
         Ash
     }
+
+    [SerializeField] private AudioClip toAsh;
     
     [SerializeField] private PlayerState state = PlayerState.Human;
     public PlayerState GetState() => state;
@@ -61,6 +63,8 @@ public class Mechanics : MonoBehaviour
         
         playerObject.SetActive(false);
         ashObject.SetActive(true);
+        
+        GetComponent<AudioSource>().PlayOneShot(toAsh);
     }
 
     public void SetHuman()

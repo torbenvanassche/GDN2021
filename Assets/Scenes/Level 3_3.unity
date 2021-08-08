@@ -4360,6 +4360,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5274189968496395566, guid: 432bb7f949e96eb46ab0dd0a8652614f, type: 3}
+      propertyPath: screenAnim
+      value: 
+      objectReference: {fileID: 528682484}
     - target: {fileID: 9167373222251873377, guid: 432bb7f949e96eb46ab0dd0a8652614f, type: 3}
       propertyPath: m_Name
       value: Respawn Platform
